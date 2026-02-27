@@ -45,14 +45,37 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin />
     <link rel="dns-prefetch" href="https://lh3.googleusercontent.com" />
 
-    <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link
+    <!-- Preload LCP Hero Image -->
+    <link rel="preload" as="image"
+        href="https://lh3.googleusercontent.com/aida-public/AB6AXuCDmt-gsVCtlWI-tT9SgJe-a8BSGUE_UcWV56gXsO6QpzxUlCttwy9iWbvc_YJAjGfMoETZjTQZ5SK65p37P4vwD3LN_Owu3OCBVw-ftPJkxI0dbw2U3Zoz2Jh_eDpRjRy20S9uI2dtl7k9QkN8FtJWNcFw3NUInoxw0JJu15VbS3LFr7aYfqwKG_6fkIAuPjk_Xl3wPxt3CY_A8yCWs9Cw0YGKebxM1sQAriByRBKSlMLZdGpMjXBfa1ucglYDnB_nj7CsDigo41-t"
+        fetchpriority="high" />
+
+    <!-- CSS: Bootstrap (non-render-blocking) -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    </noscript>
+
+    <!-- Google Fonts (non-render-blocking) -->
+    <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+        as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+            rel="stylesheet" />
+    </noscript>
+
+    <!-- Material Icons (non-render-blocking) -->
+    <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" as="style"
+        onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+    </noscript>
 
     <!-- Structured Data: Organization -->
     <script type="application/ld+json">
@@ -244,7 +267,7 @@
             --dark: #0d1f13;
             --surface: #132118;
             --card-bg: #172d1e;
-            --muted: #6b8c74;
+            --muted: #8faa96;
             --text-light: #e8f5ec;
             --white: #ffffff;
         }
@@ -459,7 +482,7 @@
 
         .stat-label {
             font-size: .8rem;
-            color: var(--muted);
+            color: #a3bfaa;
             text-transform: uppercase;
             letter-spacing: .05em;
         }
@@ -607,7 +630,7 @@
             padding: 1.5rem;
         }
 
-        .activity-card-body h4 {
+        .activity-card-body h3 {
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
             font-size: 1.2rem;
@@ -729,7 +752,7 @@
         .combo-card-body h3 {
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--white);
             margin-bottom: .75rem;
         }
@@ -833,7 +856,7 @@
             color: var(--lime);
         }
 
-        .why-item h5 {
+        .why-item h3 {
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
             color: var(--white);
@@ -933,7 +956,7 @@
             margin-bottom: .5rem;
         }
 
-        .blog-card-body h5 {
+        .blog-card-body h3 {
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
             color: var(--white);
@@ -1168,6 +1191,20 @@
                 height: 200px;
             }
         }
+
+        /* Reduce CLS: reserve space for images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Font fallback to reduce CLS from font loading */
+        .material-icons-round {
+            font-size: 24px;
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+        }
     </style>
     <style>
         html,
@@ -1192,7 +1229,8 @@
                 <span class="material-icons-round me-1" style="vertical-align:-4px;color:var(--lime)">forest</span>
                 OUTBOUND <span>BATU</span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
+                aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" style="filter:invert(1)"></span>
             </button>
             <div class="collapse navbar-collapse" id="navMain">
@@ -1354,11 +1392,11 @@
                             <div class="activity-card-img">
                                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTKF57NCFGTcFp_XMQiA8oRx5Huh1ZXE56CYtjve2QST68-02vGUzQC6v2_VphId7PK7EfMy4D2QhyWxVQz_DsPHlYdxKd24B3S24uDE89usT_9Wwr1XxD16ZItc6awamOO8daTX11zj27nXtAlp3AiZUCjAWdS7DH97jbD0AFlJNPf8tC5c10KoiXLQ2_sAQLzh8RO-OG2IMgZTRCAmtmXHrIK3gst_dmuP-nkzIwIHX3A0H9ZB9jKuC8D57dQWHokU0DSbq2fnCi"
                                     alt="Flying Fox Batu Malang - Wahana terpanjang di Jawa Timur" width="400"
-                                    height="220" loading="lazy" />
+                                    height="220" loading="lazy" decoding="async" />
                                 <span class="badge-popular">Populer</span>
                             </div>
                             <div class="activity-card-body">
-                                <h4>Flying Fox</h4>
+                                <h3>Flying Fox</h3>
                                 <p>Meluncur dari ketinggian dengan pemandangan pegunungan Batu yang menakjubkan. Aman
                                     dan
                                     memacu adrenalin.</p>
@@ -1382,10 +1420,10 @@
                             <div class="activity-card-img">
                                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAxEXiMdK_gpFmy601Km3HckFsyeimPwflih6ovmhYAW0uKgRP9W8_2oHKlcxmUeds8QFKntJN3rZzcwoZw0Q0LTcJ9RQ08FyH8uKGptKsdotsu6feXTymYs4CDmnHA4lcIMm04By0wEUqn3iMFvX6eP5hRbf2znScWBBZNY6zfX-keHFZR0xmm21Wsb3Sf35fmCUMwF1h8PsrPLC3MUI_0njeS7xdjnqDsSdVvYV3cNeHa1pBBAG-apl89w7kLPLlv9C0tU0pzTqI"
                                     alt="Paintball War di hutan pinus Batu Malang" width="400" height="220"
-                                    loading="lazy" />
+                                    loading="lazy" decoding="async" />
                             </div>
                             <div class="activity-card-body">
-                                <h4>Paintball War</h4>
+                                <h3>Paintball War</h3>
                                 <p>Simulasi pertempuran seru di arena hutan pinus. Lengkap seragam, senjata
                                     semi-otomatis,
                                     dan pelindung wajah.</p>
@@ -1408,10 +1446,10 @@
                             <div class="activity-card-img">
                                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuALnYA2XVjj0cIygcYEIK2oXoRKsyryJUsSshX1W-mJjdYZlUJ67p4OzqTqJYTpS1ljXmOTo_nJUdYP9A5d9DnTAmVejwK9q8Eikq8JFV-PrnKpIpVg2LsQMYo1ZnV-sl3uFue2T9JLV7Dyxi1enozeVm5SxBLwCPE3h9mcclViJBm2tuKCD3ivau_Oy7BZtyaB3OrQjzd6MuI_-63nzGYMPgfmQzqQGlTa2dsZ9BSC4yHpeLyT6Eh6kVTRxRgwOFDUA5JMXVsqrhp-"
                                     alt="Team Building perusahaan di alam terbuka Batu" width="400" height="220"
-                                    loading="lazy" />
+                                    loading="lazy" decoding="async" />
                             </div>
                             <div class="activity-card-body">
-                                <h4>Team Building</h4>
+                                <h3>Team Building</h3>
                                 <p>Games interaktif dirancang khusus untuk meningkatkan kekompakan, kepemimpinan, dan
                                     komunikasi tim perusahaan.</p>
                                 <div class="price-row">
@@ -1433,10 +1471,10 @@
                             <div class="activity-card-img">
                                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAixatUDbXy84-OEX8iOEpQnv1OZE4BakC5gtgZH45sY8j5IuHnTidDZ3n9s28bIdjny0FPN7bHngR7fnN2yY7Jk7VkprsORvkcT8iVtUm-viQHsr7JfXl-RWdfoPUFP5cHMmFVCM9WX2R2My0isr9OymLWYjM_BMjK5tckGSoFbmmDyV4QpTA3pC5Z6PDm9k_RN_PQPXeTdyiwJMYn00wlUgh3ezbSJFToMtr0E-6j2HPXV3ntmD4pyWopJfhKR4OogZfQtMA-bArI"
                                     alt="Jeep Adventure 4x4 off-road Batu Malang" width="400" height="220"
-                                    loading="lazy" />
+                                    loading="lazy" decoding="async" />
                             </div>
                             <div class="activity-card-body">
-                                <h4>Jeep Adventure</h4>
+                                <h3>Jeep Adventure</h3>
                                 <p>Jelajahi keindahan alam Batu dan Bromo dengan Jeep 4x4. Rute menantang off-road yang
                                     seru
                                     dan aman.</p>
@@ -1471,7 +1509,8 @@
                         <div class="combo-card">
                             <div class="combo-card-img">
                                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeywD8HjjVQmeLlXj4GxHgyjuUjms_H_qODZUaKWz4MfQytvFk3uzU3ErfRp5QW0yh0Pj56VQELnHjte7FC6jz_QfbRJArSiDXAv8Xuoj7JupL99jsTRwPrxQhaCnE5jya8T-F2NtxgQeXaX90i9QUQBZB4QHs4h0mQKQ6xT9ImSVzYRiqXVjVvnSE2EBaRKG0pTrOT42notY48gECmhEBRVqJMJ_GJBJ9VLtc3xclMAinmg9lz6ujJ81miLtq2vVVJipEz-TJjofh"
-                                    alt="Rafting Paintball" />
+                                    alt="Paket Paintball dan Rafting di Batu Malang" width="400" height="300"
+                                    loading="lazy" decoding="async" />
                             </div>
                             <div class="combo-card-body">
                                 <div class="stars">★★★★★</div>
@@ -1490,7 +1529,8 @@
                         <div class="combo-card">
                             <div class="combo-card-img">
                                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA11Euz9-4UKXbc1S5zPsZlJ73TYwv1mWeyHvz4suoLESnb3NqmseBpfI1kwPhU_iJj_kIyMWUsL_D2DfJ4FVunvl8GsZalStJKEm4PjkoO-oYrX-lGZsOsS2c8WrWQQM2yvGvi6UWJjleFrhMyKK3Qkg6F79QNGpaE8IFojVIcQfh_mqdPzDt6CpddHc2Nhs5Hhv5Vo2nccqIxX_YC85QU8Iduei5uLHhn1qpqX05jtc6giIlFtBbDpFmZ-kwyBCozdSnVYLk0tQkW"
-                                    alt="Family Camping" />
+                                    alt="Paket Family Camping dan Outbound di Batu Malang" width="400" height="300"
+                                    loading="lazy" decoding="async" />
                             </div>
                             <div class="combo-card-body">
                                 <div class="stars">★★★★½</div>
@@ -1540,14 +1580,14 @@
                         <div class="why-item">
                             <div class="why-icon"><span class="material-icons-round">workspace_premium</span></div>
                             <div>
-                                <h5>Fasilitator Bersertifikat</h5>
+                                <h3>Fasilitator Bersertifikat</h3>
                                 <p>Tim kami memiliki sertifikasi BNSP untuk pemandu wisata outbound profesional.</p>
                             </div>
                         </div>
                         <div class="why-item">
                             <div class="why-icon"><span class="material-icons-round">verified_user</span></div>
                             <div>
-                                <h5>Keamanan Terjamin</h5>
+                                <h3>Keamanan Terjamin</h3>
                                 <p>Peralatan standar internasional UIAA/CE dan maintenance rutin untuk keselamatan
                                     maksimal.
                                 </p>
@@ -1556,14 +1596,14 @@
                         <div class="why-item">
                             <div class="why-icon"><span class="material-icons-round">savings</span></div>
                             <div>
-                                <h5>Harga Kompetitif</h5>
+                                <h3>Harga Kompetitif</h3>
                                 <p>Paket transparan tanpa biaya tersembunyi, sesuai dengan budget Anda.</p>
                             </div>
                         </div>
                         <div class="why-item">
                             <div class="why-icon"><span class="material-icons-round">thumb_up</span></div>
                             <div>
-                                <h5>Layanan All-In</h5>
+                                <h3>Layanan All-In</h3>
                                 <p>Kami mengurus transportasi, konsumsi, dokumentasi, hingga akomodasi.</p>
                             </div>
                         </div>
@@ -1656,11 +1696,12 @@
                         <div class="blog-card">
                             <div class="blog-card-img">
                                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxX38qvBJoSvZ8ulwmuIg62Fp0VFI2Wk6kw704Xb_9Hpb4UCTGDCqA-dtcb-BbGgq7vgYJS-uwYtiWEaKOYeqEFy78ynwKDX06zLidqf_UdqOG9EB9sU-kbHrpYI10CqIZyKt3jMApDid5P5u8qdI91d9RmnaaZvtZRAGZzpaZ3QCdbQ38VjeHYM9plmvMhxQo39AIpzkmZF-YiV6CBZpp6IspOsG1Kpv80ybHNSKYkFSV9s2FGWnxVdyMkVPjxSwzc0BmGeJvwBYf"
-                                    alt="Blog 1" />
+                                    alt="Manfaat Team Building untuk Karyawan Perusahaan" width="400" height="200"
+                                    loading="lazy" decoding="async" />
                             </div>
                             <div class="blog-card-body">
                                 <div class="blog-cat">Tips Outbound</div>
-                                <h5>Manfaat Team Building untuk Karyawan</h5>
+                                <h3>Manfaat Team Building untuk Karyawan</h3>
                                 <p>Mengapa perusahaan besar selalu mengadakan outbound tahunan? Simak manfaat
                                     psikologisnya.
                                 </p>
@@ -1673,11 +1714,12 @@
                         <div class="blog-card">
                             <div class="blog-card-img">
                                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZbzc-T6v-D-AKo5GV91IgsuBa0QfQrHL3RPmnJCyVWv5cwfVCX7aa-v-qlUH-ecXRKbTkPaYGl7wSckbEK1pyFJN-pVenT5B5fyc2tbEKbZ2QdghJHyKQZe0oDKCkv8eyicH6EZ00SBDvbmu8vuVPVtVVcJiMjRnkunmzuiE3Vh7mTcguJTjwmK5OEF-gZdhRabIW6ZseFfOH3UwjAAZjnZ9ecQAodxJYFf9I8yVRyvfHFTf34J1w7l-RrqtzyYzzRMiuEwK5ybQy"
-                                    alt="Blog 2" />
+                                    alt="5 Spot Foto Terbaik di Coban Rondo Batu" width="400" height="200"
+                                    loading="lazy" decoding="async" />
                             </div>
                             <div class="blog-card-body">
                                 <div class="blog-cat">Wisata Batu</div>
-                                <h5>5 Spot Foto Terbaik di Coban Rondo</h5>
+                                <h3>5 Spot Foto Terbaik di Coban Rondo</h3>
                                 <p>Jangan lewatkan spot instagramable ini saat berkunjung ke kawasan air terjun Coban
                                     Rondo.
                                 </p>
@@ -1690,11 +1732,12 @@
                         <div class="blog-card">
                             <div class="blog-card-img">
                                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5Z9tQE9M8nXM47Wjrj24oobkeD0LFXQ5Y76KaX8YvNN0LB76R7rX_o-yxK03Rhcg1o0Xuqm-cp_FjeCMRao8bRCwpCUj-dqj4XgegnW5R9rXCHn8Jqi7-Dg-zTV_ObkeDdXooDALMw2Mbxyv3iSdk-ZLWwI1B7DIt8LuIVwvDvo_Uzlsa-NN12ykQ6BHB9Uz1uwBOBtKTdd_MmftwwG3Ghk-KoFSDC3KFQRjHZnSWoLYRIM3pMppbhhwrpL5sr7l-2okk2FvryVC2"
-                                    alt="Blog 3" />
+                                    alt="Paket Hemat Liburan Sekolah 2024 di Batu Malang" width="400" height="200"
+                                    loading="lazy" decoding="async" />
                             </div>
                             <div class="blog-card-body">
                                 <div class="blog-cat">Promo</div>
-                                <h5>Paket Hemat Liburan Sekolah 2024</h5>
+                                <h3>Paket Hemat Liburan Sekolah 2024</h3>
                                 <p>Diskon khusus untuk rombongan sekolah dan universitas selama periode liburan
                                     semester.
                                 </p>
@@ -1723,19 +1766,19 @@
                         wisata petualangan di Kota
                         Wisata Batu, Malang sejak 2015. Berkomitmen memberikan pengalaman terbaik dan aman.</p>
                     <div class="d-flex gap-2">
-                        <a href="#"
+                        <a href="#" aria-label="Facebook"
                             style="width:36px;height:36px;background:rgba(163,230,53,0.1);border:1px solid rgba(163,230,53,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--lime);transition:all .2s;text-decoration:none"
                             onmouseover="this.style.background='var(--lime)';this.style.color='var(--dark)'"
                             onmouseout="this.style.background='rgba(163,230,53,0.1)';this.style.color='var(--lime)'">
                             <span class="material-icons-round" style="font-size:1rem">facebook</span>
                         </a>
-                        <a href="#"
+                        <a href="#" aria-label="Instagram"
                             style="width:36px;height:36px;background:rgba(163,230,53,0.1);border:1px solid rgba(163,230,53,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--lime);transition:all .2s;text-decoration:none"
                             onmouseover="this.style.background='var(--lime)';this.style.color='var(--dark)'"
                             onmouseout="this.style.background='rgba(163,230,53,0.1)';this.style.color='var(--lime)'">
                             <span class="material-icons-round" style="font-size:1.1rem">photo_camera</span>
                         </a>
-                        <a href="#"
+                        <a href="#" aria-label="YouTube"
                             style="width:36px;height:36px;background:rgba(163,230,53,0.1);border:1px solid rgba(163,230,53,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--lime);transition:all .2s;text-decoration:none"
                             onmouseover="this.style.background='var(--lime)';this.style.color='var(--dark)'"
                             onmouseout="this.style.background='rgba(163,230,53,0.1)';this.style.color='var(--lime)'">
@@ -1795,40 +1838,45 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <script>
-        // Smooth navbar shrink on scroll
+        // Combine scroll listeners into single passive listener for performance
         const navbar = document.querySelector('.navbar');
+        const scrollTopBtn = document.getElementById('scrollTop');
+        let ticking = false;
+
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 60) {
-                navbar.style.borderBottomColor = 'rgba(163,230,53,0.2)';
-            } else {
-                navbar.style.borderBottomColor = 'rgba(163,230,53,0.1)';
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const sy = window.scrollY;
+                    // Navbar border
+                    navbar.style.borderBottomColor = sy > 60 ? 'rgba(163,230,53,0.2)' : 'rgba(163,230,53,0.1)';
+                    // Back to Top
+                    if (sy > 300) {
+                        scrollTopBtn.classList.add('visible');
+                    } else {
+                        scrollTopBtn.classList.remove('visible');
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
+        }, { passive: true });
+
+        // Back to Top click
+        scrollTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Fade-in on scroll
+        // Fade-in on scroll with IntersectionObserver
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => {
                 if (e.isIntersecting) {
                     e.target.style.opacity = '1';
                     e.target.style.transform = 'translateY(0)';
+                    observer.unobserve(e.target);
                 }
             });
-        }, { threshold: 0.15 });
-
-        // Back to Top functionality
-        const scrollTop = document.getElementById('scrollTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollTop.classList.add('visible');
-            } else {
-                scrollTop.classList.remove('visible');
-            }
-        });
-
-        scrollTop.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
         document.querySelectorAll('.activity-card, .combo-card, .blog-card, .why-item').forEach(el => {
             el.style.opacity = '0';
