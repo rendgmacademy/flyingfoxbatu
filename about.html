@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Kami – Outbound Batu Malang</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+    <style>
+        :root {
+            --green: #1a7a42;
+            --green-light: #28a05a;
+            --lime: #a3e635;
+            --lime-dark: #84cc16;
+            --dark: #0d1f13;
+            --surface: #132118;
+            --card-bg: #172d1e;
+            --muted: #6b8c74;
+            --text-light: #e8f5ec;
+            --white: #ffffff;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden; overflow-wrap: break-word;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; overflow-wrap: break-word;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .display-font {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--green);
+            border-radius: 3px;
+        }
+
+        /* ─── NAVBAR ─── */
+        .navbar {
+            background: rgba(13, 31, 19, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(163, 230, 53, 0.1);
+        }
+
+        .navbar-brand {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            color: var(--white) !important;
+        }
+
+        .navbar-brand span {
+            color: var(--lime);
+        }
+
+        .nav-link {
+            color: rgba(232, 245, 236, 0.75) !important;
+            font-size: .875rem;
+            font-weight: 500;
+            transition: color .2s;
+            padding: 0.5rem 1rem !important;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--lime) !important;
+        }
+
+        .btn-nav {
+            background: var(--lime);
+            color: var(--dark) !important;
+            font-weight: 700;
+            border-radius: 50px;
+            padding: .4rem 1.25rem !important;
+            font-size: .85rem;
+            transition: background .2s;
+        }
+
+        .btn-nav:hover {
+            background: var(--lime-dark);
+        }
+
+        /* ─── HERO BANNER ─── */
+        .hero-banner {
+            min-height: 60vh;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            padding-bottom: 4rem;
+        }
+
+        .hero-banner-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcCt_DvKtJByndtGRRZ-xMI53UMnq7OIQ7vuYBzY6q6rmGR15mXpwfAyWntpbdtAtjRJmtYRx4LVCxi03-mN0rKx2GS-W3iDqXTzLrzUGxwXqFacP0wGsWiqJIxF3gPl96K9bA2474hZULUn9VK0jdu0QiwhZ6KBccv90WxZ6r5rtNMY1FzRCXQiPzWOVMRk2HlUoYgBZqENofIPhd2Ytsnx9XLT9G20pY0ZpQh8YgTA6HAqbpxamCdFEOT6VduWTm_646nCoCxuna') center/cover;
+        }
+
+        .hero-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(13, 31, 19, 1) 0%, rgba(13, 31, 19, 0.6) 50%, rgba(13, 31, 19, 0.25) 100%);
+        }
+
+        .hero-banner-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .breadcrumb {
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb-item a {
+            color: var(--lime);
+            text-decoration: none;
+            font-size: .82rem;
+        }
+
+        .breadcrumb-item.active {
+            color: var(--muted);
+            font-size: .82rem;
+        }
+
+        .breadcrumb-item+.breadcrumb-item::before {
+            color: var(--muted);
+        }
+
+        .who-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: rgba(163, 230, 53, 0.12);
+            border: 1px solid rgba(163, 230, 53, 0.35);
+            color: var(--lime);
+            font-size: .78rem;
+            font-weight: 700;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: .35rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-banner h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .hero-banner p {
+            font-size: 1.1rem;
+            color: rgba(232, 245, 236, .8);
+            max-width: 560px;
+        }
+
+        /* ─── SECTION COMMONS ─── */
+        .section-label {
+            font-size: .75rem;
+            font-weight: 700;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--lime);
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            margin-bottom: .75rem;
+        }
+
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--lime);
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+        }
+
+        .section-title em {
+            font-style: normal;
+            color: var(--lime);
+        }
+
+        /* ─── STORY ─── */
+        .story-section {
+            padding: 6rem 0;
+            background: var(--surface);
+        }
+
+        .story-img-wrap {
+            position: relative;
+        }
+
+        .story-img-frame {
+            position: absolute;
+            inset: -12px -12px 12px 12px;
+            border: 1.5px solid rgba(163, 230, 53, 0.25);
+            border-radius: 20px;
+        }
+
+        .story-img-wrap img {
+            width: 100%;
+            border-radius: 16px;
+            position: relative;
+            z-index: 1;
+            object-fit: cover;
+            max-height: 420px;
+        }
+
+        .story-text p {
+            color: rgba(232, 245, 236, .78);
+            font-size: 1.05rem;
+            line-height: 1.85;
+            margin-bottom: 1.25rem;
+        }
+
+        /* ─── MISSION VISION ─── */
+        .mission-section {
+            padding: 6rem 0;
+            background: var(--dark);
+        }
+
+        .mv-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(163, 230, 53, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all .3s;
+            height: 100%;
+        }
+
+        .mv-card:hover {
+            border-color: rgba(163, 230, 53, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .mv-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(163, 230, 53, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--lime);
+            margin-bottom: 1.25rem;
+            transition: all .3s;
+        }
+
+        .mv-card:hover .mv-icon {
+            background: var(--lime);
+            color: var(--dark);
+        }
+
+        .mv-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: .6rem;
+        }
+
+        .mv-card p {
+            color: var(--muted);
+            font-size: .9rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ─── SAFETY BANNER ─── */
+        .safety-section {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            margin: 0 1rem;
+        }
+
+        .safety-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDW6vqAeJI0D9OBZifwMlXSFRYelM53EmaIqOk0ws4bdFaOl8yqP-ydId0-1BoncTNsxbIOIRrs25_afP1sz6xDWPIQO8SAZ9VQ9f9OfrgF68xFT6l5LN54qrDEb-nY3OMfZlfhb9V52eMQxJxH9x5h8INCh7novkl1ogutxFOC2z3PcLvb0p7HXXU-SjKavEXNsRuV_poqlyjvhWNyNadfouXcvI2LnX2aG7Pv_37BZf66b4NVp1SD65kzgp4V84SEiX9ZrOWo7OHD') center/cover;
+            filter: brightness(.2);
+        }
+
+        .safety-content {
+            position: relative;
+            z-index: 2;
+            padding: 5rem 0;
+        }
+
+        .safety-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: var(--lime);
+            color: var(--dark);
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: .35rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+        }
+
+        .safety-content h2 {
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .safety-content p {
+            color: rgba(232, 245, 236, .8);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .safety-check {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            color: rgba(232, 245, 236, .9);
+            font-size: .9rem;
+            margin-bottom: .75rem;
+        }
+
+        .safety-check .material-icons-round {
+            color: var(--lime);
+            font-size: 1.1rem;
+        }
+
+        .safety-stat-card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .safety-stat-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--lime);
+            line-height: 1;
+        }
+
+        .safety-stat-label {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--white);
+            font-size: 1.1rem;
+            margin: .5rem 0;
+        }
+
+        .safety-stat-desc {
+            font-size: .82rem;
+            color: var(--muted);
+        }
+
+        /* ─── TEAM ─── */
+        .team-section {
+            padding: 6rem 0;
+            background: var(--surface);
+        }
+
+        .team-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(163, 230, 53, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all .35s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(163, 230, 53, 0.4);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+        }
+
+        .team-card-img {
+            aspect-ratio: 4/5;
+            overflow: hidden;
+        }
+
+        .team-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s;
+        }
+
+        .team-card:hover .team-card-img img {
+            transform: scale(1.07);
+        }
+
+        .team-card-body {
+            padding: 1.25rem 1.5rem 1.5rem;
+        }
+
+        .team-card-body h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--white);
+            margin-bottom: .2rem;
+        }
+
+        .team-role {
+            font-size: .82rem;
+            color: var(--lime);
+            font-weight: 600;
+            margin-bottom: .6rem;
+        }
+
+        .team-card-body p {
+            font-size: .84rem;
+            color: var(--muted);
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* ─── STATS BAR ─── */
+        .stats-bar {
+            padding: 4rem 0;
+            background: var(--card-bg);
+            border-top: 1px solid rgba(163, 230, 53, 0.1);
+            border-bottom: 1px solid rgba(163, 230, 53, 0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .stat-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--lime);
+        }
+
+        .stat-label {
+            font-size: .8rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .07em;
+            margin-top: .25rem;
+        }
+
+        /* ─── CTA ─── */
+        .cta-section {
+            padding: 6rem 0;
+            background: var(--dark);
+        }
+
+        .cta-box {
+            background: rgba(163, 230, 53, 0.07);
+            border: 1px solid rgba(163, 230, 53, 0.2);
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-box h2 em {
+            font-style: normal;
+            color: var(--lime);
+        }
+
+        .cta-box p {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 540px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn-primary-custom {
+            background: var(--lime);
+            color: var(--dark);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            padding: .8rem 2rem;
+            font-size: .95rem;
+            transition: all .25s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .btn-primary-custom:hover {
+            background: var(--lime-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-custom {
+            background: transparent;
+            color: var(--white);
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+            padding: .8rem 2rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: .95rem;
+            transition: all .25s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .btn-outline-custom:hover {
+            border-color: var(--lime);
+            color: var(--lime);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #080f0a;
+            border-top: 1px solid rgba(163, 230, 53, 0.1);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-brand {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: .75rem;
+        }
+
+        .footer-brand span {
+            color: var(--lime);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: .5rem;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            font-size: .875rem;
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--lime);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(163, 230, 53, 0.08);
+            padding-top: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        /* ─── FLOATING UI ─── */
+        .wa-float-new {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 1050;
+            background: #25d366;
+            color: #fff;
+            padding: 0.6rem 1.25rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .wa-float-new:hover {
+            transform: scale(1.05) translateY(-2px);
+            background: #20ba59;
+            color: #fff;
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 5.25rem;
+            right: 1.5rem;
+            z-index: 1050;
+            background: var(--lime);
+            color: var(--dark);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(163, 230, 53, 0.3);
+            transition: all 0.4s;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 576px) {
+            .wa-float-new {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.6rem 1rem;
+            }
+
+            .scroll-top {
+                bottom: 4.5rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+<style> html, body { overflow-x: hidden !important; width: 100% !important; max-width: 100vw !important; overflow-wrap: break-word; } </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="material-icons-round me-1" style="vertical-align:-4px;color:var(--lime)">forest</span>
+                OUTBOUND <span>BATU</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+                <span class="navbar-toggler-icon" style="filter:invert(1)"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1 py-3 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">Profil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Pilihan Outbound</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Paket Hemat</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item ms-lg-2"><a class="nav-link btn-nav" href="#">Hubungi Kami</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO BANNER -->
+    <section class="hero-banner" style="padding-top:80px">
+        <div class="hero-banner-bg"></div>
+        <div class="hero-banner-overlay"></div>
+        <div class="container hero-banner-content">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Tentang Kami</li>
+                </ol>
+            </nav>
+            <div class="who-badge">
+                <span class="material-icons-round" style="font-size:1rem">info</span>
+                Who We Are
+            </div>
+            <h1 class="mb-3">Tentang <span style="color:var(--lime)">Kami</span></h1>
+            <p>Creating unforgettable memories in the heart of Batu through adventure and teamwork — since 2010.</p>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-num">15+</div>
+                        <div class="stat-label">Tahun Pengalaman</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-num">25K+</div>
+                        <div class="stat-label">Peserta Puas</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-num">500+</div>
+                        <div class="stat-label">Klien Perusahaan</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-num">100%</div>
+                        <div class="stat-label">Safety Record</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OUR STORY -->
+    <section class="story-section">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 order-2 order-lg-1">
+                    <div class="section-label">Perjalanan Kami</div>
+                    <h2 class="section-title mb-4">Our <em>Story</em></h2>
+                    <div class="story-text">
+                        <p>
+                            Didirikan pada tahun 2010 di jantung Kota Batu, Malang, kami memulai dengan passion untuk
+                            petualangan dan keinginan untuk menyatukan orang-orang. Apa yang dimulai sebagai kelompok
+                            kecil pecinta alam telah berkembang menjadi penyedia pengalaman outbound terkemuka di Jawa
+                            Timur.
+                        </p>
+                        <p>
+                            Dari operator flying fox kecil, kami telah berkembang menjadi provider outbound premier
+                            Batu, berdedikasi untuk menciptakan pengalaman yang aman, seru, dan bermakna di alam untuk
+                            tim perusahaan, sekolah, dan keluarga.
+                        </p>
+                        <p>
+                            Filosofi kami sederhana: setiap orang berhak mendapatkan petualangan yang aman dan tak
+                            terlupakan. Dengan standar keselamatan internasional dan fasilitator bersertifikat, kami
+                            memastikan setiap momen menjadi kenangan berharga.
+                        </p>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <div
+                            style="background:rgba(163,230,53,0.08);border:1px solid rgba(163,230,53,0.2);border-radius:12px;padding:.75rem 1rem;display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--lime)">
+                            <span class="material-icons-round" style="font-size:1rem">verified</span> BNSP Certified
+                        </div>
+                        <div
+                            style="background:rgba(163,230,53,0.08);border:1px solid rgba(163,230,53,0.2);border-radius:12px;padding:.75rem 1rem;display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--lime)">
+                            <span class="material-icons-round" style="font-size:1rem">security</span> UIAA/CE Equipment
+                        </div>
+                        <div
+                            style="background:rgba(163,230,53,0.08);border:1px solid rgba(163,230,53,0.2);border-radius:12px;padding:.75rem 1rem;display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--lime)">
+                            <span class="material-icons-round" style="font-size:1rem">insurance</span> Fully Insured
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2">
+                    <div class="story-img-wrap">
+                        <div class="story-img-frame"></div>
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBved97Vqv7JQZt1czeCDFhRlM95JG7pNZt0oAfzcKCAQGnMPknWAJQGZEEwgeeF_HAqhSDKtYs8KTqkRr1dOPPx0rABBkYhxSEl4XuGrh0QWX1cUj4GNJLsbXYZ7lGZXLJqxRsMiyQhq2nEgnb_lGv9LDuL3tBdTPpT1kVVt7sTlpHwCN4xx6hO_uITLGFLpzRXc-oQMxje91pm6vu2-MHeXHJShlEeVRYLjJAkkhpUo_9DtEUl5YFoqUYUuni2MJT-_TCXbP' alt="
+                            Hiking in forest" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION & VISION -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-label justify-content-center">Misi & Visi</div>
+                <h2 class="section-title">Mission <em>& Vision</em></h2>
+                <p style="color:var(--muted);font-size:1rem;max-width:540px;margin:1rem auto 0;line-height:1.8">
+                    Kami berupaya memberikan pengalaman outdoor yang aman, seru, dan bermakna yang menghubungkan orang
+                    dengan alam dan satu sama lain.
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="mv-card">
+                        <div class="mv-icon"><span class="material-icons-round"
+                                style="font-size:1.5rem">verified_user</span></div>
+                        <h3>Safety First</h3>
+                        <p>Mengutamakan standar keselamatan tertinggi di setiap aktivitas dengan peralatan dan protokol
+                            bersertifikat internasional.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mv-card">
+                        <div class="mv-icon"><span class="material-icons-round" style="font-size:1.5rem">forest</span>
+                        </div>
+                        <h3>Nature Conservation</h3>
+                        <p>Menghormati dan melestarikan lingkungan indah Kota Batu melalui praktik ramah lingkungan di
+                            setiap kegiatan kami.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mv-card">
+                        <div class="mv-icon"><span class="material-icons-round" style="font-size:1.5rem">groups</span>
+                        </div>
+                        <h3>Team Unity</h3>
+                        <p>Membangun koneksi yang lebih kuat melalui tantangan kolaboratif yang dirancang untuk
+                            menumbuhkan kepercayaan tim.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mv-card">
+                        <div class="mv-icon"><span class="material-icons-round"
+                                style="font-size:1.5rem">psychology</span></div>
+                        <h3>Personal Growth</h3>
+                        <p>Mendorong perkembangan pribadi melalui tantangan yang membangun karakter, ketahanan mental,
+                            dan kepemimpinan.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mv-card">
+                        <div class="mv-icon"><span class="material-icons-round" style="font-size:1.5rem">eco</span>
+                        </div>
+                        <h3>Eco-Friendly</h3>
+                        <p>Berkomitmen menjalankan operasional bisnis yang berkelanjutan dan mendukung program
+                            penghijauan di kawasan Batu.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mv-card">
+                        <div class="mv-icon"><span class="material-icons-round"
+                                style="font-size:1.5rem">workspace_premium</span></div>
+                        <h3>Professional Service</h3>
+                        <p>Memberikan layanan kelas profesional dengan standar hospitality tertinggi dari konsultasi
+                            awal hingga post-event follow-up.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SAFETY SECTION -->
+    <section style="padding: 5rem 0; background: var(--surface);">
+        <div class="container">
+            <div class="safety-section">
+                <div class="safety-bg"></div>
+                <div class="safety-content">
+                    <div class="container">
+                        <div class="row g-5 align-items-center">
+                            <div class="col-lg-7">
+                                <div class="safety-badge">
+                                    <span class="material-icons-round" style="font-size:1rem">security</span>
+                                    Certified Safe
+                                </div>
+                                <h2>Your Safety is Our<br /><span style="color:var(--lime)">Top Priority</span></h2>
+                                <p>Kami tidak berkompromi dalam hal keselamatan. Semua peralatan kami telah mendapatkan
+                                    sertifikasi UIAA dan diperiksa secara berkala. Instruktur kami terlatih sebagai
+                                    penolong pertama dan siap dalam merespons situasi darurat.</p>
+                                <div class="mt-3">
+                                    <div class="safety-check"><span class="material-icons-round">check_circle</span>
+                                        International Standard Equipment (UIAA/CE)</div>
+                                    <div class="safety-check"><span class="material-icons-round">check_circle</span>
+                                        Certified Professional Instructors</div>
+                                    <div class="safety-check"><span class="material-icons-round">check_circle</span>
+                                        Comprehensive Insurance Coverage</div>
+                                    <div class="safety-check"><span class="material-icons-round">check_circle</span>
+                                        Regular Equipment Maintenance & Inspection</div>
+                                    <div class="safety-check"><span class="material-icons-round">check_circle</span>
+                                        Emergency Response Protocol</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="safety-stat-card">
+                                    <div class="safety-stat-num">100%</div>
+                                    <div class="safety-stat-label">Safety Record</div>
+                                    <div class="safety-stat-desc">Zero accidents since our establishment in 2010. Over
+                                        25,000 participants, zero incidents.</div>
+                                    <hr style="border-color:rgba(163,230,53,0.2);margin:1.5rem 0" />
+                                    <div class="row g-3">
+                                        <div class="col-6">
+                                            <div
+                                                style="font-family:'Outfit',sans-serif;font-size:1.75rem;font-weight:800;color:var(--lime)">
+                                                15+</div>
+                                            <div style="font-size:.78rem;color:var(--muted)">Tahun Beroperasi</div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div
+                                                style="font-family:'Outfit',sans-serif;font-size:1.75rem;font-weight:800;color:var(--lime)">
+                                                48h</div>
+                                            <div style="font-size:.78rem;color:var(--muted)">Equipment Check Cycle</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="team-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-6">
+                    <div class="section-label">Tim Kami</div>
+                    <h2 class="section-title">Meet Our <em>Expert Team</em></h2>
+                    <p style="color:var(--muted);font-size:.95rem;line-height:1.8;margin-top:1rem">
+                        Dipandu oleh passion dan keahlian, tim kami memastikan setiap momen petualangan Anda aman dan
+                        tak terlupakan.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-xl-3">
+                    <div class="team-card">
+                        <div class="team-card-img">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKhPymiFELhEhEw_loLvS836L2Fhs8f_M6BwNkZWTlwb27nXkQIWJtfOZEuzvKSizKtIVu4BMx4zxeSwRtFJohMAMtIqOxrCBi22obNPyDeKfOesg1J8wd4SXM3SmuaXzkvD65_j7d0eSREDRmIFYIEYbi36-JnSZFr6drJea1v8lh95wldX3u8C947RSiPpobPPgAS2D4EOd6-ne6qALu1ifaCqrEkqLEm0tno9TJGOGRW4RqpFDCPU60r4unNbh6bahtbgTFH7KP"
+                                alt="Budi Santoso" />
+                        </div>
+                        <div class="team-card-body">
+                            <h4>Budi Santoso</h4>
+                            <div class="team-role">Lead Instructor</div>
+                            <p>10+ tahun pengalaman dalam outdoor education dan survival skills. Certified BNSP &
+                                Wilderness First Aid.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="team-card">
+                        <div class="team-card-img">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYsLgbGvm2BFSnXiyn-iShErFtwJWyGd8MaPC4TpfojaW11gVceTFSIlF88J7uEo11yjko1So8pNToT2Pr6U47s4WlAfVXMUy54x6nOUgHD9PiHa0aRADMgmmTRcf-43DbztBbDD5yBnQSTQXQ8TkZQOvWe91S7doHu6gpDQy7q5RzInqEoojt5LPgGbFops__IuIP0mrsckXbz9ujS17iEfRD6f57tXewIdqdf62AZ-VNVpzbtLKaUgEhRYqDJXO7xwL4PfufD0fj"
+                                alt="Siti Rahma" />
+                        </div>
+                        <div class="team-card-body">
+                            <h4>Siti Rahma</h4>
+                            <div class="team-role">Safety Officer</div>
+                            <p>Bersertifikat dalam advanced first aid dan risk management assessment untuk kegiatan
+                                outdoor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="team-card">
+                        <div class="team-card-img">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqjgvMcB3HkTYd5-PFBqXvT0YZHp_au_WRoIL4sQMqQhcrItWjzRcvEV-c3L3nYOb9hZljcxuhS2tJn-shK3rWPr4tf-_79Daq-tGHf2jIonmBaygJ-ZK7Hi8AIiWBrYqpIPsrRjzzdtxa7kgTy5BgbNq391xrM6e9mqzN7yMbhStVkw7t5H_qxX-N-KyWfPZGqw-m9hBy5R6qWnevM_PAh9CvX2hJDHz4AnrBdovWVVtIzV0WaKJbUbjZoa_-LkfPWSCSmaKrqQNF"
+                                alt="Agus Wijaya" />
+                        </div>
+                        <div class="team-card-body">
+                            <h4>Agus Wijaya</h4>
+                            <div class="team-role">Activity Coordinator</div>
+                            <p>Spesialis dalam merancang program team building untuk grup korporat dari 50 hingga 2000
+                                peserta.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="team-card">
+                        <div class="team-card-img">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFQWmWl84wcU4yDw_IG5cvzuXAKaFf93r0MBLilKQ-a6l_XsYkUbxkjyiHMnDO3HndYw0A3eirGDIAbG9Sdb5SPj0Xk_SukKEtwWcoI-8xdfaNevzjh4Z4aMooBlMIUpIbhI_FE1uP5YKd70wi9lmh7cuTgLQ4iooy0DzyxKvZSw9G3vb84AwlwSD4oOpw7Ew_s4bR1Y7IZEf9UssKT17gul6pwYHkcI4EnhX3v4zDXHmJ4cIeio0L2azuavZTcG0NJgnruw8YqZJk"
+                                alt="Dewi Lestari" />
+                        </div>
+                        <div class="team-card-body">
+                            <h4>Dewi Lestari</h4>
+                            <div class="team-role">Guide & Facilitator</div>
+                            <p>Passionate tentang flora dan fauna lokal, membuat setiap sesi hiking menjadi pengalaman
+                                edukatif.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready for an <em>Adventure?</em></h2>
+                <p>Bergabunglah dengan kami di Batu Malang untuk pengalaman yang tidak akan pernah Anda lupakan. Baik
+                    untuk outing korporat maupun liburan keluarga.</p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <a href="#" class="btn-primary-custom">
+                        Book Your Trip
+                        <span class="material-icons-round" style="font-size:1.1rem">arrow_forward</span>
+                    </a>
+                    <a href="#" class="btn-outline-custom">
+                        <span class="material-icons-round" style="font-size:1.1rem">chat</span>
+                        Hubungi Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <span class="material-icons-round me-1"
+                            style="vertical-align:-4px;color:var(--lime)">forest</span>
+                        OUTBOUND <span>BATU</span>
+                    </div>
+                    <p style="color:var(--muted);font-size:.875rem;line-height:1.8">Provider premier outbound, flying
+                        fox, dan team building di Batu, Malang. Menciptakan kenangan sejak 2010.</p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <p
+                        style="font-family:'Outfit',sans-serif;font-weight:700;color:var(--white);font-size:.95rem;margin-bottom:1rem">
+                        Quick Links</p>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Packages</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <p
+                        style="font-family:'Outfit',sans-serif;font-weight:700;color:var(--white);font-size:.95rem;margin-bottom:1rem">
+                        Contact Us</p>
+                    <div
+                        style="display:flex;align-items:flex-start;gap:.5rem;color:var(--muted);font-size:.85rem;margin-bottom:.6rem">
+                        <span class="material-icons-round"
+                            style="color:var(--lime);font-size:1rem;margin-top:2px">location_on</span><span>Jl. Raya
+                            Oro-Oro Ombo No. 9, Batu</span>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:.5rem;color:var(--muted);font-size:.85rem;margin-bottom:.6rem">
+                        <span class="material-icons-round" style="color:var(--lime);font-size:1rem">call</span><span>+62
+                            812 3456 7890</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:.5rem;color:var(--muted);font-size:.85rem"><span
+                            class="material-icons-round"
+                            style="color:var(--lime);font-size:1rem">mail</span><span>hello@outboundbatu.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-center pt-4"
+                style="border-top:1px solid rgba(163,230,53,0.1);margin-top:2.5rem">
+                <p style="color:var(--muted);font-size:.85rem;margin:0">© 2026 Outbound Batu Malang. All rights
+                    reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING UI -->
+    <a href="#" class="scroll-top" id="scrollTop" title="Kembali ke Atas">
+        <span class="material-icons-round">keyboard_arrow_up</span>
+    </a>
+    <a href="https://wa.me/6281234567890" class="wa-float-new" title="Konsultasi Gratis">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.601 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+        </svg>
+        <span>Konsultasi Gratis</span>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = '1';
+                    e.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Back to Top functionality
+        const scrollTop = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        scrollTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.querySelectorAll('.mv-card, .team-card, .safety-stat-card').forEach((el, i) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = `opacity .6s ease ${i * 0.08}s, transform .6s ease ${i * 0.08}s`;
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
