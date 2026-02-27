@@ -1,0 +1,24 @@
+# robots.txt - Flying Fox Batu Malang
+# https://flyingfoxbatu.vercel.app/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://flyingfoxbatu.vercel.app/sitemap.xml
+
+# Crawl-delay (optional, for polite crawling)
+Crawl-delay: 1
+
+# Allow all search engine bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
